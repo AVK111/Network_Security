@@ -52,7 +52,8 @@ if __name__=="__main__":
     FILE_PATH="Network_Data\phisingData.csv"
     DATABASE="AtharvKale"
     Collection="NetworkData"
-    networkobj.csv_to_json(FILE_PATH)
+    networkobj = NetworkDataExtract()
+    records=networkobj.csv_to_json(FILE_PATH)
     print(records)
-    no_of_records=networkobj.insert_data_mongodb(records,DATABASE,Collection)
+    no_of_records=networkobj.insert_data_to_mongo(records,DATABASE,Collection)
     print(no_of_records)
